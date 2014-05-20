@@ -1,7 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>Github Pages</p>
-</body>
+    <head>
+        <title>Progress Indicator Animation</title>
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="player"></div>
+        <!-- fake post content goes here -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" crossorigin="anonymous"></script>
+        <script src="js/script.js"></script>
+        <script>
+            (function() {
+                var script = document.createElement("script");
+                
+                script.type = "text/javascript";
+                script.async = true;
+                script.src = "https://sd.toneden.io/production/toneden.loader.js"
+                
+                var entry = document.getElementsByTagName("script")[0];
+                entry.parentNode.insertBefore(script, entry);
+            }());
+            
+            ToneDenReady = window.ToneDenReady || [];
+            ToneDenReady.push(function() {
+                // Modify the dom and urls parameters to position
+                // your player and select tracks/sets/artists to play.
+                ToneDen.player.create({
+                    dom: "#player",
+                    urls: [
+                        "https://soundcloud.com/giraffage"
+                    ]
+                });
+            });
+        </script>
+    </body>
 </html>
